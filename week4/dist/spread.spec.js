@@ -10,7 +10,7 @@ describe('Array Copy Test', function () {
 });
 describe('Combining two arrays test', function () {
     it('Should be that both arrays are equal', function () {
-        chai_1.expect(spread_1.originalContenders).to.eql(spread_1.allContenders);
+        chai_1.expect(spread_1.modifiedRunnerUps).to.eql(spread_1.allContenders);
     });
 });
 describe('Combining object test', function () {

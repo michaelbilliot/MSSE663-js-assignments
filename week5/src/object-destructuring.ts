@@ -1,7 +1,8 @@
 // #1 Object Destructuring
 export const object = { name: 'elvis', title: 'hip swinger' };
 
-// deconstruct here
+export const person = object.name;
+export const job = object.title;
 
 // Assign variables using ES6 so that we get (note, you cannot just make a completely new object):
 console.log(person); // 'elvis'
@@ -17,7 +18,9 @@ export const nestedObject = {
   id: 1
 };
 
-// deconstruct here
+export const user = nestedObject.user;
+export const address = nestedObject.address;
+export const id = nestedObject.id;
 
 // expected results:
 console.log(user); // 'elvis'
@@ -26,11 +29,15 @@ console.log(id); // 1
 
 // #4 Create a new object given the destructed values above
 
-// reconstruct here
+export const anotherObject = {
+  user,
+  address,
+  id
+};
 
 // #3 Object with key value pairs: construct a statement
-{ greeting: 'hello', name: 'taylor' }
+let greet = { greeting: 'hello',  named: 'taylor' }
 
-// construct statement here
-
+export const hello = greet.greeting + `, ` + greet.named + `!`;
+console.log(hello);
 // expected result: 'hello, taylor!'
