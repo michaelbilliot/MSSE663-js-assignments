@@ -31,6 +31,6 @@ exports.anotherObject = {
 };
 // #3 Object with key value pairs: construct a statement
 let greet = { greeting: 'hello', named: 'taylor' };
-let hello = greet.greeting + `, ` + greet.named;
-console.log(hello);
+exports.hello = greet.greeting + `, ` + greet.named + `!`;
+console.log(exports.hello);
 // expected result: 'hello, taylor!'

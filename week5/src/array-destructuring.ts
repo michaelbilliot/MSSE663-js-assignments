@@ -7,8 +7,8 @@ export const fruits = ['apple', 'banana'];
 //console.log(b); // 'banana'
 
 // deconstruct here
-export const a = fruits[1];
-export const b = fruits[0];
+export const [,a] = fruits;
+export const [b] = fruits;
 
 // Assign variables using ES6 so that we get (note, you cannot just make a completely new array):
 console.log(a); // 'banana';
@@ -19,8 +19,6 @@ export const food = ['apple', 'banana', 'chocolate', 'pears', 'oats', 'pizza'];
 
 // deconstruct here
 export const [aa,bb, ...others] = food;
-//export const bb = food[1];
-//export const others = [aa,bb, ...food];
 
 // expected result:
 console.log(aa); // 'apple'
@@ -29,7 +27,9 @@ console.log(others); // ['chocolate, 'pears', 'oats', 'pizza']
 
 // #3 Array: Contruct a statement
 let words = ['hello', 'taylor'];
+let [greeting] = words;
+let [, name] = words;
 
 // construct statement here
-export const hello = words[0] + `, ` + words[1] + `!`;
+export const hello = greeting + `, ` + name + `!`;
 // expected result: 'hello, taylor!'

@@ -14,14 +14,15 @@ console.log(exports.b); // 'apple';
 // #2 Variables and Rest
 exports.food = ['apple', 'banana', 'chocolate', 'pears', 'oats', 'pizza'];
 // deconstruct here
-const aa = exports.food[0];
-const bb = exports.food[1];
-exports.others = [aa, bb, ...exports.food];
+exports.aa = exports.food[0], exports.bb = exports.food[1], exports.others = exports.food.slice(2);
 // expected result:
-console.log(exports.a); // 'apple'
-console.log(exports.b); // 'banana'
+console.log(exports.aa); // 'apple'
+console.log(exports.bb); // 'banana'
 console.log(exports.others); // ['chocolate, 'pears', 'oats', 'pizza']
 // #3 Array: Contruct a statement
-['hello', 'taylor'];
+let words = ['hello', 'taylor'];
+let [greeting] = words;
+let [, name] = words;
 // construct statement here
+exports.hello = greeting + `, ` + name + `!`;
 // expected result: 'hello, taylor!'
