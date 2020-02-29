@@ -1,3 +1,4 @@
+"use strict";
 /**
  * #1 Higher order things.
  *
@@ -8,26 +9,15 @@
  * - Then Hoist the callback function.
  *
  */
-
-interface thingsWithID {
-    id: number;
-    name: string;
-}
-
+Object.defineProperty(exports, "__esModule", { value: true });
 const things = ['thing1', 'thing2'];
-
 // create callback here
-const createObject = (thing: string, index: number) => ({
+const createObject = (thing, index) => ({
     id: index,
     name: thing
-})
-
+});
 // create map here
-export const things2 = things.map(createObject);
-
-
-
-
+exports.things2 = things.map(createObject);
 /**
  * #2 Higher order then curry.
  *
@@ -35,12 +25,10 @@ export const things2 = things.map(createObject);
  * - Filter the results from #1 to return a single `thing` object.
  * - Hoist that filter callback and curry all functions.
  */
-
 // create function here
-const getThingByName = (key: string) => (thing: thingsWithID) => thing.name === key;
- 
-function getThing(key: string) {
-    return things2.filter(getThingByName(key));
-}
-
-export const aThing = getThing('thing1');
+console.log("things2 = ", exports.things2);
+const getThingByName = (key) => (thing) => thing[name] === key;
+const a = function (key) {
+    return exports.things2.filter(getThingByName(key));
+};
+console.log(a('thing1'));

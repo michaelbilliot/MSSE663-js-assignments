@@ -1,22 +1,35 @@
 // #1 Convert this javascript function to a curried function
-function curryMe(string1, string2, string3): string {
+export function curryMe(string1: string, string2: string, string3: string): string {
   return string1 + ' ' + string2 + ' ' + string3;
 }
 
 // source code here
 
+export const convertedFunction = (string1: string) => (string2: string) => (string3: string) =>  string1 + ' ' + string2 + ' ' + string3;
+
 // #2 Hoist and convert nested functions to curried functions
-function doMath(a) {
-  return function add(b) {
-    return function subtract(c) {
+export function doMath(a: any) {
+  return function add(b: any) {
+    return function subtract(c: number) {
       return a + b - c;
     };
   };
 }
 
 // source code here
+const substraction = (a: number) => (b: number) => (c: number) => a + b - c;
+const addition = (a:number) => (b:number) => (c: number) => substraction(a)(b)(c);
+export const performMath = (a:number) => addition(a);
+
 
 // #3 Write a curried function that returns an array containing the ninjas who have a black belt
+
+interface ninjaObject {
+  name: string;
+  belt: string;
+}
+
+
 const ninjasOne = [
   { name: 'Michelangelo', belt: 'white' },
   { name: 'Donatello', belt: 'green' },
@@ -41,7 +54,12 @@ const ninjasTwo = [
 ];
 
 // source code here
+const allNinjas = [...ninjasOne, ...ninjasTwo];
+export const blackBeltNinjas = allNinjas.filter((ninja: any) => {
+  return ninja.belt === 'black';
+});
 
+console.log(allNinjas);
 /**
  * #4 Write a curried function that returns a new array of ninja objects with "status" added to each object.
  * The status should be the value of whatever key in the status object matches the ninja's belt.
@@ -49,16 +67,35 @@ const ninjasTwo = [
  * @example { name: 'Colt', belt: 'green', status: 'warrior' }
  */
 
-const statusTypes = {
+type GenericType = {[key: string]: string};
+
+interface ninjaStatus extends ninjaObject {
+  status: GenericType;
+} 
+
+const statusTypes: GenericType = {
   white: 'grasshopper',
   green: 'warrior',
   black: 'sensei'
 };
 
-const gamerStatusTypes = {
+const gamerStatusTypes: GenericType = {
   white: 'Noob',
   green: 'Choob',
   black: 'Legend'
 };
 
 // source code here
+export const ninjaWithStatus = ninjasOne.map((ninja: ninjaObject) => {
+  return {
+    ...ninja, 
+    status: statusTypes[ninja.belt]
+  }
+});
+
+export const ninjaGamerStatus = ninjasTwo.map((ninja: ninjaObject) => {
+  return {
+    ...ninja, 
+    status: gamerStatusTypes[ninja.belt]
+  }
+});

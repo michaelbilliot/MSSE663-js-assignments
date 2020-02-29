@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint **/*.ts --fix",
     "test": "mocha -r ts-node/register src/**/*.spec.ts",
-    "dev": "ts-node src/spread.ts"
+    "dev": "ts-node src/higher-order-funcs.ts",
+    "tsc": "tsc"
   },
   "author": "",
   "license": "ISC",
@@ -14,7 +15,7 @@
     "typescript": "^3.7.2"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.5",
+    "@types/chai": "^4.2.9",
     "@types/mocha": "^5.2.7",
     "@typescript-eslint/eslint-plugin": "^2.7.0",
     "@typescript-eslint/parser": "^2.7.0",
